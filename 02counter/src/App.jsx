@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
 
-  let [counter, setCounter] = useState(15)
+  const [counter, setCounter] = useState(15)
 
   //any value can be passed
   //useState(true)
@@ -18,13 +18,29 @@ function App() {
   const addValue = () => {
     // console.log("clicked", Math.random());
 
-    counter = counter + 1;
-    console.log("clicked", counter);
-    setCounter(counter);
-    //OR
-    // setCounter(counter + 1)
+    //   counter = counter + 1;
+    //  // console.log("clicked", counter);
+    //   setCounter(counter);
+    //OR--if const keyword is used
+    //setCounter(counter + 1)
 
+    //another CONCEPT---
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    //we assumed ki value 19 aaegi but ek click pr sirf ek hi value badhti hai.
+    //why? usestate--batches--fibre--diffing algorithm--more control
+    //ek hi kaam repeat ho raha hai toh ek hi maanege
+
+    setCounter(prevCounter => prevCounter + 1)
+    setCounter(prevCounter => prevCounter + 1)
+    setCounter(prevCounter => prevCounter + 1)
+    setCounter(prevCounter => prevCounter + 1)
   }
+
+  //callback function aata h set counter--toh usme prevcounter bhejenege
+  //setCounter((prevCounter)=> prevCounter + 1 )
 
   const removeValue = () => {
     setCounter(counter - 1)
